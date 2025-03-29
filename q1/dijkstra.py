@@ -2,31 +2,31 @@ class Graph:
     def __init__(self):
         self.adjacency_list = {}
 
-    def add_edge(self, vertex1, vertex2, distance):
+    def add_edge(self, vertex1, vertex2, weight):
         if vertex1 not in self.adjacency_list:
             self.adjacency_list[vertex1] = []
-        self.adjacency_list[vertex1].append((vertex2, distance))
+        self.adjacency_list[vertex1].append((vertex2, weight))
 
     def dijkstra(self, origin, destination):
         unvisited = list(self.adjacency_list.keys())
-        distances = {vertex: float("inf") for vertex in self.adjacency_list}
-        distances[origin] = 0
+        weights = {vertex: float("inf") for vertex in self.adjacency_list}
+        weights[origin] = 0
         predecessors = {}
         while unvisited:
-            current = min(unvisited, key=lambda vertex: distances[vertex])
-            if distances[current] == float("inf"):
+            current = min(unvisited, key=lambda vertex: weights[vertex])
+            if weights[current] == float("inf"):
                 break
             for neighbor in self.adjacency_list[current]:
-                vertex, distance = neighbor[0], neighbor[1]
-                new_distance = distances[current] + distance
-                if new_distance < distances[vertex]:
-                    distances[vertex] = new_distance
+                vertex, weight = neighbor[0], neighbor[1]
+                new_weight = weights[current] + weight
+                if new_weight < weights[vertex]:
+                    weights[vertex] = new_weight
                     predecessors[vertex] = current
             unvisited.remove(current)
         path = []
         current = destination
         while current in predecessors.keys():
-            path.insert(0, (current, distances[current]))
+            path.insert(0, (current, weights[current]))
             current = predecessors[current]
         path.insert(0, (origin, 0))
         return path
