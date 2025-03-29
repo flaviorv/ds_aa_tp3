@@ -64,6 +64,6 @@ if __name__ == "__main__":
         ("Neighborhood J", "Neighborhood F", 3), ("Neighborhood J", "Neighborhood I", 2)
     ]
 
-    [g1.add_edge(ori, des, dis) for ori, des, dis in e1]
+    [g1.add_edge(ori, des, wei) for ori, des, wei in e1]
     g1.show()
     g1.min_path("Neighborhood J", "Neighborhood D")
