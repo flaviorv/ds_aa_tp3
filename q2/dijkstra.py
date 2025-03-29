@@ -41,7 +41,7 @@ class Graph:
         if len(path) <= 1:
             print("Path not found")
         else:
-            print(f"\nShortest Path Found Between {origin} and {destination}")
+            print(f"\nFaster Path Found Between {origin} and {destination}")
             for i in range(len(path)):
                 if i != len(path)-1:
                     print(path[i], end="=>")
