@@ -62,7 +62,7 @@ class Graph:
             print(f"Best Path Found Between {origin} and {destination}")
             for i in range(len(path)):
                 print(f'{path[i][0]} time: {path[i][1][1]}min distance: {path[i][1][0]}km autonomy: {path[i][1][3]}km' \
-                    f'{' - charging station' if path[i][1][2] else ""} {'=>' if i != len(path)-1 else "- arraival"}')
+                    f'{' - charging station' if path[i][1][2] else ""} {'=>' if i != len(path)-1 else "- arrival"}')
                     
 if __name__ == "__main__":
     
